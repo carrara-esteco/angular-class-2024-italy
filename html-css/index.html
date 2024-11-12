@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>La mia pagina</title>
+</head>
+<body>
+<main>
+    <header>
+        <h1 class="title">Le mie birre</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Un'altra pagina</a>
+                </li>
+                <li>
+                    <a href="">Un'altra pagina</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <article class="beer-card">
+        <header class="title">
+            <h2 >Gafaree</h2>
+            <p>Brassata da Alessandro</p>
+        </header>
+        <p>questa e' veramente buona</p>
+        <footer>
+            <p>Brassata l'altroieri</p>
+        </footer>
+        <aside></aside>
+    </article>
+
+    <form method="post" action="/api/create">
+        <fieldset>
+            <legend class="text-red">Dati birra</legend>
+            <label class="clickable" for="nomeBirra">Nome</label>
+            <input id="nomeBirra" type="text">
+            <label class="clickable" for="quantitaBirra">Quantita'</label>
+            <input id="quantitaBirra" type="number">
+
+        </fieldset>
+        <button type="submit">Invia</button>
+        <button type="reset">Reset</button>
+    </form>
+
+
+    <ul>
+        <li class="listitem">1</li>
+        <li class="listitem">2</li>
+        <li class="listitem">3</li>
+        <li class="listitem">4</li>
+    </ul>
+
+    <style>
+
+    .beer-card > .title {
+        color: red;
+    }
+
+    .listitem+.listitem {
+        border-top: 1px solid black;
+    }
+
+    </style>
+</main>
+</body>
+</html>
