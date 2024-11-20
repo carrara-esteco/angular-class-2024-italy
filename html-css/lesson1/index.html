@@ -6,23 +6,10 @@
 </head>
 <body>
 <main>
-    <header>
-        <h1 class="title">Le mie birre</h1>
-        <nav>
-            <ul>
-                <li>
-                    <a href="">Un'altra pagina</a>
-                </li>
-                <li>
-                    <a href="">Un'altra pagina</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <article class="beer-card">
-        <header class="title">
-            <h2 >Gafaree</h2>
+    <article class="beer-card  beer-card--small beer-card--important">
+        <header class="beer-card__header">
+            <h2 class="beer-card__title">Gafaree</h2>
             <p>Brassata da Alessandro</p>
         </header>
         <p>questa e' veramente buona</p>
@@ -32,36 +19,23 @@
         <aside></aside>
     </article>
 
-    <form method="post" action="/api/create">
-        <fieldset>
-            <legend class="text-red">Dati birra</legend>
-            <label class="clickable" for="nomeBirra">Nome</label>
-            <input id="nomeBirra" type="text">
-            <label class="clickable" for="quantitaBirra">Quantita'</label>
-            <input id="quantitaBirra" type="number">
-
-        </fieldset>
-        <button type="submit">Invia</button>
-        <button type="reset">Reset</button>
-    </form>
-
-
-    <ul>
-        <li class="listitem">1</li>
-        <li class="listitem">2</li>
-        <li class="listitem">3</li>
-        <li class="listitem">4</li>
-    </ul>
-
     <style>
 
-    .beer-card > .title {
-        color: red;
-    }
+        .beer-card {
+            border: 1px solid black;
+        }
 
-    .listitem+.listitem {
-        border-top: 1px solid black;
-    }
+        .beer-card__header {
+            color: blue;
+        }
+
+        .beer-card--small {
+            width: 500px;
+        }
+
+        .beer-card.beer-card--important .beer-card__header {
+            color: red;
+        }
 
     </style>
 </main>
