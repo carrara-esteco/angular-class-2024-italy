@@ -3,6 +3,8 @@ const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const fs = require('fs');
 
+
+
 function buildCSS() {
     const result = sass.compile('styles.scss',
         {
@@ -24,4 +26,4 @@ function postCss(css) {
         });
 }
 
-buildCSS();
+buildCSS()
