@@ -17,7 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-class",
+            "outputPath": {
+              "base": "dist/angular-class",
+              "browser": "",
+              "media": "assets"
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -29,10 +33,23 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@esteco/soul-core/assets",
+                "output": "/assets/"
               }
             ],
             "styles": [
               "src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/"
+              ]
+            },
+            "externalDependencies": [
+              "./assets/*"
             ],
             "scripts": []
           },

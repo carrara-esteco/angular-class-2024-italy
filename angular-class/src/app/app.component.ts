@@ -1,15 +1,26 @@
 import { Component } from '@angular/core';
-import { ChildComponent } from './child.component';
+import { BeerComponent } from './beer/beer.component';
+import { Beer } from './beer/beer';
+import { BeersService } from './beer/beers.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    ChildComponent
+    BeerComponent
   ],
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  public title: string = 'quello che voglio';
+
+  beers: Beer[] = [];
+
+  constructor(private readonly beersService: BeersService) {
+    this.beers = this.beersService.getBeers();
+  }
+
+  public onBeerFinished(beerName: string): void {
+    console.log(`Hai finito le ${beerName}. Imbriago`);
+  }
 }
 

@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+/*------------------------------------*\
+  $SOUL-CORE
+\*------------------------------------*/
+@use '@esteco/soul-core/modules/core';
+
+/*------------------------------------*\
+  $SOUL-BASE-STYLES
+\*------------------------------------*/
+@use '@esteco/soul-core/modules/base-styles';
+
+/*------------------------------------*\
+  $SOUL-THEMES
+\*------------------------------------*/
+@use '@esteco/soul-core/modules/themes';
+
+/*------------------------------------*\
+  $SOUL-COMPONENTS
+\*------------------------------------*/
+@use '@esteco/soul-core/modules/components';
+
+/*------------------------------------*\
+  $PUT-HERE-YOUR-STYLES
+\*------------------------------------*/
+@use 'styles/manifest';
+
+/*------------------------------------*\
+  $SOUL-ESSENTIALS
+  Make sure this import is always the last
+\*------------------------------------*/
+@use '@esteco/soul-core/modules/essentials';
