@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from './beer';
 import { HighlightDirective } from '../highlight.directive';
 import { DatePipe } from '@angular/common';
@@ -12,7 +12,8 @@ import { AbvPipe } from './abv.pipe';
     DatePipe,
     AbvPipe
   ],
-  templateUrl: 'beer.component.html'
+  templateUrl: 'beer.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BeerComponent {
 

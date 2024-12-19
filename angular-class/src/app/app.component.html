@@ -2,7 +2,7 @@
   <div class="soul-grid-item-fill-span"></div>
   <main class="soul-grid-item-auto-span">
     <header class="soul-space-stack-both-xl">
-      <h1  class="soul-heading  soul-heading--h1">Le mie birre</h1>
+      <h1 class="soul-heading  soul-heading--h1">{{title}}</h1>
     </header>
     @for (beer of beers; track beer.name) {
       <app-beer [beer]="beer" (finished)="onBeerFinished($event)"></app-beer>
