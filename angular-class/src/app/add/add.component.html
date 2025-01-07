@@ -1,0 +1,60 @@
+<form class="soul-form" [formGroup]="beerForm">
+  <div class="soul-form__item">
+    <div class="soul-textbox">
+      <div class="soul-textbox__label">
+        <label for="beerName" >Name</label>
+      </div>
+      <div class="soul-textbox__control">
+        <input id="beerName" type="text" class="soul-textbox__input" name="name" formControlName="name"/>
+      </div>
+    </div>
+  </div>
+  <div class="soul-form__item">
+    <div class="soul-textbox">
+      <div class="soul-textbox__label">
+        <label for="beerStyle" >Style</label>
+      </div>
+      <div class="soul-textbox__control">
+        <input id="beerStyle" type="text" class="soul-textbox__input" name="style" formControlName="style"/>
+      </div>
+    </div>
+  </div>
+  <div class="soul-form__item">
+    <div class="soul-textbox">
+      <div class="soul-textbox__label">
+        <label for="beerQuantity" >Quantity</label>
+      </div>
+      <div class="soul-textbox__control">
+        <input id="beerQuantity" type="number" class="soul-textbox__input" name="quantity" formControlName="quantity"/>
+      </div>
+    </div>
+  </div>
+  <div class="soul-form__item">
+    <div class="soul-textbox">
+      <div class="soul-textbox__label">
+        <label for="beerAbv" >ABV</label>
+      </div>
+      <div class="soul-textbox__control">
+        <input id="beerAbv" type="number" class="soul-textbox__input" name="abv" step="0.1" formControlName="abv"/>
+      </div>
+    </div>
+  </div>
+  <div class="soul-form__item">
+  <div class="soul-select">
+    <div class="soul-select__label">
+      <label for="beerSeries">Series</label>
+    </div>
+    <div class="soul-select__control">
+      <select id="beerSeries" class="soul-select__input" name="series" formControlName="series">
+        @for (option of seriesOptions; track option) {
+          <option [value]="option">{{option}}</option>
+
+        }
+      </select>
+    </div>
+  </div>
+</div>
+  <div class="soul-form__actions">
+    <button type="button" [disabled]="beerForm.invalid" class="soul-button  soul-button--default  soul-button--fill" (click)="addBeer()">Add beer</button>
+  </div>
+</form>

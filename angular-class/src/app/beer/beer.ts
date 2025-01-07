@@ -4,4 +4,5 @@ export interface Beer {
   date: number;
   abv: number;
   quantity: number;
+  series: string;
 }

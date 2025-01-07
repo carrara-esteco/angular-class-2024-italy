@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { BeerComponent } from './beer/beer.component';
 import { Beer } from './beer/beer';
 import { BeersService } from './beer/beers.service';
+import { AddComponent } from './add/add.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    BeerComponent
+    BeerComponent,
+    AddComponent
   ],
   templateUrl: './app.component.html'
 })

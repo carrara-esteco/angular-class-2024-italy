@@ -2,14 +2,16 @@
   <article class="soul-card  soul-card--flat soul-card--comfortable">
     <header class="soul-card__header">
       <div class="soul-card__header-content">
-        <h2 class="soul-heading  soul-heading--h2" appHighlight>{{ beer.name }}</h2>
+        <h2 class="soul-heading  soul-heading--h2">{{ beer.name }}</h2>
         <time class="soul-label  soul-label--reduced">{{ beer.date | date}}</time>
       </div>
     </header>
     <section class="soul-card__content">
       <dl>
         <dt class="soul-label  soul-label--strong">Style</dt>
-        <dd class="soul-label soul-label--stat" appHighlight>{{ beer.style }}</dd>
+        <dd class="soul-label soul-label--stat">{{ beer.style }}</dd>
+        <dt class="soul-label  soul-label--strong">Series</dt>
+        <dd class="soul-label soul-label--stat">{{ beer.series }}</dd>
         <dt class="soul-label  soul-label--strong">ABV</dt>
         <dd class="soul-label soul-label--stat">{{ beer.abv | appAbv}}</dd>
         <dt class="soul-label  soul-label--strong">Quantity</dt>

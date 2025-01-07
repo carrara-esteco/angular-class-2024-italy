@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from './beer';
-import { HighlightDirective } from '../highlight.directive';
 import { DatePipe } from '@angular/common';
 import { AbvPipe } from './abv.pipe';
 
@@ -8,7 +7,6 @@ import { AbvPipe } from './abv.pipe';
   selector: 'app-beer',
   standalone: true,
   imports: [
-    HighlightDirective,
     DatePipe,
     AbvPipe
   ],
@@ -22,7 +20,8 @@ export class BeerComponent {
     date: 0,
     abv: 0,
     quantity: 0,
-    style: ''
+    style: '',
+    series: ''
   };
 
   @Input()
@@ -33,7 +32,7 @@ export class BeerComponent {
 
   public drinkOne(): void {
     this.beer.quantity--;
-    if(this.beer.quantity === 0) {
+    if (this.beer.quantity === 0) {
       this.finished.emit(this.beer.name);
     }
   }

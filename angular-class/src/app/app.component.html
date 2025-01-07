@@ -4,6 +4,7 @@
     <header class="soul-space-stack-both-xl">
       <h1 class="soul-heading  soul-heading--h1">{{title}}</h1>
     </header>
+    <app-add></app-add>
     @for (beer of beers; track beer.name) {
       <app-beer [beer]="beer" (finished)="onBeerFinished($event)"></app-beer>
     }
