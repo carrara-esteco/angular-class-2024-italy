@@ -1,0 +1,3 @@
+@for (beer of beers; track beer.name) {
+  <app-beer [beer]="beer" (finished)="onBeerFinished($event)"></app-beer>
+}

@@ -1,33 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { BeerComponent } from './beer/beer.component';
-import { Beer } from './beer/beer';
-import { BeersService } from './beer/beers.service';
-import { AddComponent } from './add/add.component';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    BeerComponent,
-    AddComponent
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    NgClass
   ],
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  beers: Beer[] = [];
   title: string = 'Le mie birre';
-
-  constructor(private readonly beersService: BeersService) {
-
-  }
-
-  public ngOnInit(): void {
-    this.beers = this.beersService.getBeers();
-  }
-
-  public onBeerFinished(beerName: string): void {
-    console.log(`Hai finito le ${beerName}. Imbriago`);
-  }
 }
-
