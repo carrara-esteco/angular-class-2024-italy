@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BeersService } from '../beer/beers.service';
 
 @Component({
   selector: 'app-add',
@@ -23,10 +24,15 @@ export class AddComponent {
     date: new FormControl(new Date().toISOString().split('T')[0])
   });
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private beersService: BeersService) {
   }
 
   public addBeer(): void {
+    const newBeer = this.beerForm.value;
+    newBeer.id = Math.floor(Math.random() * 9999);
+    newBeer.date = Date.parse(newBeer.date);
+    console.log(newBeer)
+    this.beersService.addBeer(newBeer);
     this.router.navigate(['home']);
   }
 }

@@ -1,31 +1,21 @@
 import { Beer } from './beer';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BeersService {
 
-  private beers: Beer[] = [
-    {
-      name: 'Tre orsi',
-      style: 'Oatmeal stout',
-      date: 1733219877202,
-      abv: 4.3,
-      quantity: 12,
-      series: 'commonwealth'
-    },
-    {
-      name: 'Spazzacamino',
-      style: 'Extra stout',
-      date: 0,
-      abv: 6.3,
-      quantity: 11,
-      series: 'commonwealth'
-    }
-  ];
+  constructor(private httpClient: HttpClient) {
+  }
 
-  public getBeers(): Beer[] {
-    return this.beers;
+  public getBeers(): Observable<Beer[]> {
+    return this.httpClient.get<Beer[]>('api/beers');
+  }
+
+  addBeer(newBeer: Beer) {
+    this.httpClient.post('api/beers', newBeer).subscribe();
   }
 }

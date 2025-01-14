@@ -16,6 +16,7 @@ import { AbvPipe } from './abv.pipe';
 export class BeerComponent {
 
   public static readonly EMPTY_BEER: Beer = {
+    id: '',
     name: '',
     date: 0,
     abv: 0,
