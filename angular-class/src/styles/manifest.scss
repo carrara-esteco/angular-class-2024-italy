@@ -1,0 +1,5 @@
+@use '@esteco/soul-core/modules/core' as core;
+
+.app-card {
+  min-width: core.$soul-space-layout-3-xl;
+}

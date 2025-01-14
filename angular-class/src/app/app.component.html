@@ -4,19 +4,18 @@
     <header class="soul-space-stack-both-xl">
       <h1 class="soul-heading  soul-heading--h1">{{title}}</h1>
     </header>
-    <nav class="c-tabs  c-tabs--centered">
+    <nav class="c-tabs  c-tabs--centered  soul-space-stack-bottom-m">
       <ul role="tablist" class="c-tabs__tab-list">
         <li role="presentation" class="c-tabs__tab" [ngClass]="{'is-active': homeActive.isActive}">
           <a role="tab" [routerLink]="['home']" routerLinkActive #homeActive="routerLinkActive">Home</a>
         </li>
         <li role="presentation" class="c-tabs__tab" [ngClass]="{'is-active': addActive.isActive}">
-          <a role="tab" [routerLink]="['add', {outlets: {aside: ['aside']}}]" routerLinkActive #addActive="routerLinkActive">Add</a>
+          <a role="tab" [routerLink]="['add']" routerLinkActive #addActive="routerLinkActive">Add</a>
         </li>
       </ul>
     </nav>
     <router-outlet></router-outlet>
   </main>
   <div class="soul-grid-item-fill-span">
-    <router-outlet name="aside"></router-outlet>
   </div>
 </div>

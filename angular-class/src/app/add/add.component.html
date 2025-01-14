@@ -1,4 +1,4 @@
-<form class="soul-form" [formGroup]="beerForm">
+<form class="soul-form  app-card" [formGroup]="beerForm" >
   <div class="soul-form__item">
     <div class="soul-textbox">
       <div class="soul-textbox__label">
@@ -36,6 +36,16 @@
       </div>
       <div class="soul-textbox__control">
         <input id="beerAbv" type="number" class="soul-textbox__input" name="abv" step="0.1" formControlName="abv"/>
+      </div>
+    </div>
+  </div>
+  <div class="soul-form__item">
+    <div class="soul-textbox">
+      <div class="soul-textbox__label">
+        <label for="beerAbv" >Date</label>
+      </div>
+      <div class="soul-textbox__control">
+        <input id="beerDate" type="date" class="soul-textbox__input" name="date" formControlName="date"/>
       </div>
     </div>
   </div>

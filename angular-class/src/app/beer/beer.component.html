@@ -1,5 +1,5 @@
 @if (beer.quantity > 0) {
-  <article class="soul-card  soul-card--flat soul-card--comfortable">
+  <article class="soul-card  soul-card--flat soul-card--comfortable  app-card">
     <header class="soul-card__header">
       <div class="soul-card__header-content">
         <h2 class="soul-heading  soul-heading--h2">{{ beer.name }}</h2>
@@ -9,13 +9,13 @@
     <section class="soul-card__content">
       <dl>
         <dt class="soul-label  soul-label--strong">Style</dt>
-        <dd class="soul-label soul-label--stat">{{ beer.style }}</dd>
+        <dd class="soul-label soul-label--stat  soul-space-stack-bottom-s">{{ beer.style }}</dd>
         <dt class="soul-label  soul-label--strong">Series</dt>
-        <dd class="soul-label soul-label--stat">{{ beer.series }}</dd>
+        <dd class="soul-label soul-label--stat  soul-space-stack-bottom-s">{{ beer.series }}</dd>
         <dt class="soul-label  soul-label--strong">ABV</dt>
-        <dd class="soul-label soul-label--stat">{{ beer.abv | appAbv}}</dd>
+        <dd class="soul-label soul-label--stat  soul-space-stack-bottom-s">{{ beer.abv | appAbv}}</dd>
         <dt class="soul-label  soul-label--strong">Quantity</dt>
-        <dd class="soul-label soul-label--stat">{{ beer.quantity }}</dd>
+        <dd class="soul-label soul-label--stat  soul-space-stack-bottom-s">{{ beer.quantity }}</dd>
       </dl>
     </section>
     <div class="soul-card__divider"></div>
