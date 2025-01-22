@@ -1,32 +1,26 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, Signal } from '@angular/core';
 import { Beer } from '../beer/beer';
 import { BeersService } from '../beer/beers.service';
 import { BeerComponent } from '../beer/beer.component';
-import { Observable, of, Subscription } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    BeerComponent,
-    AsyncPipe
+    BeerComponent
   ],
   templateUrl: 'home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  beers$: Observable<Beer[]> = of();
+  beers: Signal<Beer[]>;
+  totalBeerQuantity = computed(() => this.beers().reduce((quantity, current) => quantity + current.quantity, 0));
 
   constructor(private readonly beersService: BeersService) {
+    this.beers = this.beersService.beers;
   }
 
-  public ngOnInit(): void {
-    this.beers$ = this.beersService.getBeers();
-  }
-
-
-  public onBeerFinished(beerName: string): void {
-    console.log(`Hai finito le ${beerName}. Imbriago`);
+  drinkAll() {
+    this.beersService.drinkAll();
   }
 }
