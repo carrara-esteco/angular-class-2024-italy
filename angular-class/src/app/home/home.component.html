@@ -1,7 +1,3 @@
-<button class="soul-button  soul-button--default" (click)="drinkAll()">Drink all</button>
-
-<p>Birre totali: {{ totalBeerQuantity() }}</p>
-
-@for (beer of beers(); track beer.name; let i = $index) {
-  <app-beer [index]="i" ></app-beer>
+@for (beer of beers$ | async; track beer.name; let i = $index) {
+  <app-beer [beer]="beer" ></app-beer>
 }

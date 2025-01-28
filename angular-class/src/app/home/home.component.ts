@@ -1,26 +1,29 @@
-import { Component, computed, Signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { Beer } from '../beer/beer';
-import { BeersService } from '../beer/beers.service';
 import { BeerComponent } from '../beer/beer.component';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { selectBeers } from '../state/beers.selectors';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    BeerComponent
+    BeerComponent,
+    AsyncPipe
   ],
   templateUrl: 'home.component.html'
 })
 export class HomeComponent {
 
-  beers: Signal<Beer[]>;
-  totalBeerQuantity = computed(() => this.beers().reduce((quantity, current) => quantity + current.quantity, 0));
+  beers$: Observable<Beer[]>;
 
-  constructor(private readonly beersService: BeersService) {
-    this.beers = this.beersService.beers;
+  constructor(private readonly store: Store) {
+    this.beers$ = this.store.select(selectBeers);
   }
 
-  drinkAll() {
-    this.beersService.drinkAll();
+  public onBeerFinished(beerName: string): void {
+    console.log(`Hai finito le ${beerName}. Imbriago`);
   }
 }

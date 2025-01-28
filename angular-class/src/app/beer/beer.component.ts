@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, computed, input, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from './beer';
 import { DatePipe } from '@angular/common';
 import { AbvPipe } from './abv.pipe';
-import { BeersService } from './beers.service';
+import { Store } from '@ngrx/store';
+import { BeerActions } from '../state/beers.actions';
 
 @Component({
   selector: 'app-beer',
@@ -16,16 +17,26 @@ import { BeersService } from './beers.service';
 })
 export class BeerComponent {
 
-  public index = input.required<number>();
-  public beer: Signal<Beer>;
+  public static readonly EMPTY_BEER: Beer = {
+    id: '',
+    name: '',
+    date: 0,
+    abv: 0,
+    quantity: 0,
+    style: '',
+    series: ''
+  };
 
-  constructor(private beersService: BeersService) {
-    this.beer = computed(() => {
-      return this.beersService.beers()[this.index()];
-    });
+  @Input()
+  public beer: Beer = BeerComponent.EMPTY_BEER;
+
+  @Output()
+  public finished: EventEmitter<string> = new EventEmitter();
+
+  constructor(private readonly store: Store) {
   }
 
   public drinkOne(): void {
-    this.beersService.drinkOne(this.index());
+    this.store.dispatch(BeerActions.drinkOne({beerId: this.beer.id}));
   }
 }

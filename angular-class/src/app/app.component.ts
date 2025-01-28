@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { BeerActions } from './state/beers.actions';
 
 @Component({
   selector: 'app-root',
@@ -16,4 +18,9 @@ import { NgClass } from '@angular/common';
 export class AppComponent {
 
   title: string = 'Le mie birre';
+
+  constructor(store: Store) {
+    store.dispatch(BeerActions.loadBeersRequest());
+  }
+
 }

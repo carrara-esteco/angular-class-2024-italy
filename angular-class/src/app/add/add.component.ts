@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BeersService } from '../beer/beers.service';
+import { Store } from '@ngrx/store';
+import { BeerActions } from '../state/beers.actions';
 
 @Component({
   selector: 'app-add',
@@ -24,15 +25,16 @@ export class AddComponent {
     date: new FormControl(new Date().toISOString().split('T')[0])
   });
 
-  constructor(private router: Router, private beersService: BeersService) {
+  constructor(private router: Router, private store: Store) {
   }
 
   public addBeer(): void {
-    const newBeer = this.beerForm.value;
-    newBeer.id = Math.floor(Math.random() * 9999);
-    newBeer.date = Date.parse(newBeer.date);
-    console.log(newBeer)
-    this.beersService.addBeer(newBeer);
+    const beer = this.beerForm.value;
+    beer.id = Math.floor(Math.random() * 9999);
+    beer.date = Date.parse(beer.date);
+
+    this.store.dispatch(BeerActions.addBeer({beer}));
+
     this.router.navigate(['home']);
   }
 }
